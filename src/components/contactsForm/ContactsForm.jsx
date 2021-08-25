@@ -3,13 +3,19 @@ import s from './ContactsForm.module.css'
 
 
 class ContactsForm extends Component {
+  initialState = {
+    name: '',
+    number: ''
+
+  }
+  
     state = {
-        name: '',
-        number: ''
+        ...this.initialState
     }
       onHandleSubmit = (e) => {
           e.preventDefault();
-          this.props.addContact(this.state)
+        this.props.addContact(this.state)
+        this.setState({...this.initialState})
    }
 
   onHandleChange = (e) => {
